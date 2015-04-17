@@ -93,7 +93,14 @@ public class Managers extends Controller {
 	public static Result newAccount(UserAccount name) {
 		return ok(views.html.details.render(userForm, name));
 	}
-
+	public static Result delete(String email ,UserAccount user) {
+  final UserAccount user1 = UserAccount.findByEmail(email);
+  if(user1 == null) {
+    return notFound(String.format("User %s does not exists.", email));
+  }
+  user1.delete();
+  return redirect(routes.Managers.list(0, user));
+}
 	public static Result Start() {
 		if (Application.dangky_check)
 			Application.setDangky(false);
