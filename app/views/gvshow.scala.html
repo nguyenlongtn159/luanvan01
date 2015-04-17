@@ -12,7 +12,11 @@
    <fieldset>
       <legend>Tài khoản @userForm("name").valueOr("New")</legend>
 
-      @helper.textarea(userForm("description"), '_label -> "THÔNG TIN CHUNG")
+     @helper.inputText(userForm("date"), '_label -> "BIRTHDAY")
+      @helper.inputText(userForm("sdt"), '_label -> "SỐ ĐIỆN THOẠI")
+      @helper.inputText(userForm("chucdanh"), '_label -> "CHỨC DANH (TS, PGS, GS,...ThS.....)")
+      @helper.inputText(userForm("noicongtac"), '_label -> "NƠI CÔNG TÁC")
+      @helper.textarea(userForm("description"), '_label -> "THÔNG TIN THÊM")
     </fieldset>
     <input type="submit" class="btn btn-primary" value="Save">
   }
