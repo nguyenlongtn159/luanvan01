@@ -51,7 +51,7 @@ public class UserAccount extends Model implements PathBindable<UserAccount> {
 	//them-17-4
 	@Formats.DateTime(pattern = "dd/MM/yyyy")
 	public Date date;
-	
+
 	public int sdt;
 
 	public String chucdanh;

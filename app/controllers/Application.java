@@ -29,6 +29,12 @@ public class Application extends Controller {
 	public static Result error() {
 		return ok(views.html.error.render());
 	}
+	public static Result logout() {
+
+		 session().clear();
+	return ok(views.html.logout.render());
+		}
+
 
 	public static Result authenticate() {
 		Form<Login> loginForm = form(Login.class).bindFromRequest();
@@ -40,9 +46,6 @@ public class Application extends Controller {
 		if (user == null) {
 			
 			return ok(views.html.error.render());
-			//flash("error", "Invalid email and/or password");
-			//return redirect(routes.Application.error());
-			//return forbidden("<html>Email hoặc password không hợp lệ <br> Vui lòng liên hệ với giáo vụ để được giúp đỡ <br> hoặc <a href='.../login'>đăng nhập lại</a>"); 
 		} else {
 			String tag = user.tag.name;
 			session("email", email);
